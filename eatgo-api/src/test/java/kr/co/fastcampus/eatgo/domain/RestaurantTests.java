@@ -14,7 +14,7 @@ public class RestaurantTests {
         Restaurant restaurant = new Restaurant(1004L,"Bob zip", "Seoul");
         System.out.println(restaurant.getId());
         assertThat(restaurant.getId(), is(1004L));
-        assertThat(restaurant.getName(), is("Bob zipㄴㄴㅇ"));
+        assertThat(restaurant.getName(), is("Bob zip"));
         assertThat(restaurant.getAddress(), is("Seoul"));
     }
 
