@@ -3,6 +3,7 @@ package kr.co.fastcampus.eatgo.interfaces;
 import kr.co.fastcampus.eatgo.domain.Restaurant;
 import kr.co.fastcampus.eatgo.domain.RestaurantRepository;
 import org.apache.catalina.util.ErrorPageSupport;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,10 +11,14 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.List;
 
-@RestController
+@RestController     //사실 이것도 Conponent의 일종  RestaurantController의 인스턴스를 만들어 준 적이 없지만 Spring이 관리했기 떄문에 정상적으로 작동함
 public class RestaurantController {
-
+/*
+    //의존성주입 하기 전
     private RestaurantRepository repository = new RestaurantRepository();
+*/
+    @Autowired      //의존성주입 Contoller를 만들어 줄 때 Spring이 알아서 RestaurantRepository를 만들어 넣어줌
+    private RestaurantRepository repository;
 
     @GetMapping("/restaurants")
     public List<Restaurant> list(){

@@ -1,9 +1,11 @@
 package kr.co.fastcampus.eatgo.interfaces;
 
+import kr.co.fastcampus.eatgo.domain.RestaurantRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.SpyBean;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -17,6 +19,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class RestaurantControllerTest {
     @Autowired    //직접 만들지 않아도 Spirng에서 알아서 만들어 줄 수 있도록 처리
     private MockMvc mvc;    //field생성
+
+    //TEST를 하기 위해 Controller에 직접 의존성을 주입해야한다
+    @SpyBean    //Controller에 원하는 객체 주입가능   /없을 때는 EatgoApplication은 에러없이 실행됐지만 TEST는 에러발생했음
+    private RestaurantRepository restaurantRepository;  //이렇게 의존성 주입을 해주면 사용할 객체를 다양하게 변경할 수 있다는 것이 도움이 된다
 
     @Test
     public void list() throws Exception {

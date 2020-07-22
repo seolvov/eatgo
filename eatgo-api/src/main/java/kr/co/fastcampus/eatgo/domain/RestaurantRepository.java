@@ -1,8 +1,11 @@
 package kr.co.fastcampus.eatgo.domain;
 
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Component  //RestaurantRepository를 Spring이 관리하게 된다
 public class RestaurantRepository {
 //두번째 중복제거 (공통코드 밖으로 빼기)
     private List<Restaurant> restaurants = new ArrayList<>();
