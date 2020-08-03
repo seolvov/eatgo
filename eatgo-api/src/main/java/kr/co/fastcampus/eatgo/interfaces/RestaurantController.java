@@ -38,7 +38,7 @@ public class RestaurantController {
         Restaurant restaurant = restaurantRepository.findById(id);  //기존의 repository는 일종의 컬랙션과 같은 역할을 했다
                                                                     //repository의 복잡한 처리가 한꺼번에 일어 나는 새로운 객체, restaurantService
                                                                     //이런 객체가 applicationLayer로 중간에 들어 가는 것
-
+        //Controller에서 Service로
         List<MenuItem> menuItems = menuItemRepository.findAllByRestaurantId(id);
         restaurant.setMenuItems(menuItems);
 */
