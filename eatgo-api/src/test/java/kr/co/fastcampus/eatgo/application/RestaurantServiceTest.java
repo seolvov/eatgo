@@ -72,4 +72,10 @@ public class RestaurantServiceTest {
 
         assertThat(menuItem.getName(), is("Kimchi"));
     }
+
+    @Test
+    public void addReataurant(){
+        Restaurant restaurant = new Restaurant(1234L, "Seol", "Hananm");
+        restaurantService.addRestaurant(restaurant);
+    }
 }
